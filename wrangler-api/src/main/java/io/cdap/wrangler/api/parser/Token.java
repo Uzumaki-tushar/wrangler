@@ -8,8 +8,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
  */
@@ -22,38 +22,30 @@ import io.cdap.wrangler.api.annotations.PublicEvolving;
 import java.io.Serializable;
 
 /**
- * The Token class represents the object that contains the value and type of
- * the token as parsed by the parser of the grammar defined for recipe.
+ * The Token interface represents a parsed token from the directive grammar.
  *
- * <p>This class provides methods for retrieving the wrapped value of token parsed
- * as well the type of token the implementation of this interface represents.</p>
- *
- * <p>It also provides method for providing the {@code JsonElement} of implementation
- * of this interface.</p>
+ * <p>Each token holds a type and a value, and can be serialized to a JSON representation.</p>
  */
 @PublicEvolving
 public interface Token extends Serializable {
   /**
-   * Returns the {@code value} of the object wrapped by the
-   * implementation of this interface.
+   * Returns the value of the token.
    *
-   * @return {@code value} wrapped by the implementation of this interface.
+   * @return the parsed value represented by this token.
    */
   Object value();
 
   /**
-   * Returns the {@code TokenType} of the object represented by the
-   * implementation of this interface.
+   * Returns the type of the token.
    *
-   * @return {@code TokenType} of the implementation object.
+   * @return the TokenType for this token.
    */
   TokenType type();
 
   /**
-   * The class implementing this interface will return the {@code JsonElement}
-   * instance including the values of the object.
+   * Converts this token to a JSON representation.
    *
-   * @return {@code JsonElement} object containing members of  implementing class.
+   * @return JSON element representing this token.
    */
   JsonElement toJson();
 }
